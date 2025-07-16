@@ -2,26 +2,20 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suivi de Virement</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
       color: #333;
-      margin: 0;
-      padding: 1em;
+      padding: 20px;
     }
 
     .container {
       max-width: 800px;
       margin: auto;
       background: #fff;
-      padding: 2em;
+      padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
@@ -29,91 +23,67 @@
     h2 {
       text-align: center;
       color: #2a7ae2;
-      margin-bottom: 1em;
+      margin-bottom: 20px;
     }
 
     .section {
-      margin-bottom: 2em;
+      margin-bottom: 25px;
     }
 
     .section-title {
       font-weight: bold;
       color: #555;
-      margin-bottom: 0.5em;
+      margin-bottom: 10px;
       border-bottom: 1px solid #ddd;
-      padding-bottom: 0.5em;
+      padding-bottom: 5px;
     }
 
     .field {
-      margin: 0.4em 0;
+      margin: 5px 0;
     }
 
-    .status-success {
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1.5s linear infinite;
+      margin: auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    .loading-text {
       text-align: center;
-      color: #2ecc71;
-      margin-top: 20px;
-    }
-
-    .status-icon {
-      font-size: 50px;
-      color: #2ecc71;
-      animation: pop 0.6s ease-out;
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .notice {
-      background-color: #fff8dc;
-      border: 1px solid #f1c40f;
-      padding: 1em;
-      margin-top: 20px;
-      border-radius: 5px;
+      margin-top: 10px;
+      color: #888;
       font-style: italic;
-      color: #7f6000;
     }
 
     .footer {
-      margin-top: 2em;
+      margin-top: 30px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 1em;
     }
 
     .signature {
       text-align: center;
-      width: 48%;
-      min-width: 140px;
+      width: 45%;
     }
 
     .signature-line {
       margin-top: 60px;
       border-top: 1px solid #000;
     }
-
-    @media screen and (max-width: 600px) {
-      .container {
-        padding: 1.2em;
-      }
-
-      h2 {
-        font-size: 1.3em;
-      }
-
-      .signature {
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <div style="text-align: right;"> <strong>Solde: 00,00 € <br> Bienvenue, M. Pascal Moulin </strong>  </div>
-    
+    <div style="text-align: right;"> <strong>Solde: 1.282.416,00 € <br> Bienvenue, M. Pascal Moulin </strong>  </div>
     <h2>Suivi de Virement Bancaire</h2>
 
     <div class="section">
@@ -136,21 +106,15 @@
       <div class="field"><strong>IBAN :</strong> FR76 1660 7000 2100 0199 3959 490</div>
       <div class="field"><strong>Adresse :</strong> 43 Rue Centrale, 30350 Canaules et Argentieres</div>
       <div class="field"><strong>BIC/SWIFT :</strong> CCBPFRPPPPG</div>
-      <div class="field"><strong>Banque :</strong> BANQUE POPULAIRE</div>
+      <div class="field"><strong>Banque :</strong> BANQUE POPULAIRE </div>
       <div class="field"><strong>Agence :</strong> BPS St Christol Les Alès - 00342</div>
       <div class="field"><strong>Pays :</strong> France</div>
     </div>
 
     <div class="section">
       <div class="section-title">Statut du Virement</div>
-      <div class="status-success">
-        <div class="status-icon">✔️</div>
-        <div><strong>Virement effectué avec succès</strong></div>
-      </div>
-      <div class="notice">
-        Votre virement a bien été effectué, mais a été mis en attente pour raison de régularisation d’imposition fiscale.  
-        <br><br>Veuillez contacter votre banque émettrice pour finaliser la transaction.
-      </div>
+      <div class="loader"></div>
+      <div class="loading-text">Virement en cours de chargement vers le compte récepteur...</div>
     </div>
 
     <div class="section">
@@ -158,6 +122,7 @@
     </div>
 
     <div class="footer">
+
 
     </div>
   </div>
